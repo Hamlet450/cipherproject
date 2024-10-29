@@ -9,7 +9,10 @@ public class Atbash {
         String inputText = scanner.nextLine();
 
         String encryptedText = encrypt(inputText);
-        System.out.println("Encrypted/Decrypted text: " + encryptedText);
+        System.out.println("Encrypted text: " + encryptedText);
+
+        String decryptedText = decrypt(encryptedText);
+        System.out.println("Decrypted text: " + decryptedText);
 
         scanner.close();
     }
@@ -23,14 +26,16 @@ public class Atbash {
                 char encryptedChar = (char) (base + ('Z' - character));
                 encryptedText.append(encryptedChar);
             } else {
-                encryptedText.append(character); // Non-letter characters remain unchanged
+                encryptedText.append(character); 
             }
         }
 
         return encryptedText.toString();
     }
 
-    // Since Atbash is self-reversible, the same method can be used for encryption and decryption
+    public static String decrypt(String text) {
+       
+        return encrypt(text);
+    }
 }
-
 
